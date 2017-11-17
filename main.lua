@@ -1,13 +1,13 @@
 -----------------------------------------------------------------------------------------
 --
 -- main.lua
--- Created by: Your Name
+-- Created by: Emma Ouellette
 -- Date: Month Day, Year
 -- Description: This calls the splash screen of the app to load itself.
 -----------------------------------------------------------------------------------------
 
--- Hiding Status Bar
--- HIDE THE STATUS BAR
+-- hide the status bar
+display.setStatusBar(display.HiddenStatusBar)
 
 -----------------------------------------------------------------------------------------
 
