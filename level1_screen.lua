@@ -1,8 +1,8 @@
 -----------------------------------------------------------------------------------------
 --
 -- level1_screen.lua
--- Created by: Your Name
--- Date: Month Day, Year
+-- Created by: Emma Ouellette
+-- Date: November 18, 2017
 -- Description: This is the level 1 screen of the game.
 -----------------------------------------------------------------------------------------
 
@@ -44,7 +44,7 @@ function scene:create( event )
     -----------------------------------------------------------------------------------------
 
     -- Insert the background image
-    bkg_image = display.newImageRect("Images/level1_screen.png", display.contentWidth, display.contentHeight)
+    bkg_image = display.newImageRect("Level1.png", display.contentWidth, display.contentHeight)
     bkg_image.x = display.contentCenterX
     bkg_image.y = display.contentCenterY
     bkg_image.width = display.contentWidth

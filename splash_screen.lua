@@ -1,42 +1,42 @@
 -----------------------------------------------------------------------------------------
 --
 -- splash_screen.lua
--- Created by: Your Name
--- Date: Month Day, Year
+-- Created by: Emma Ouellette
+-- Date: November 18, 2017
 -- Description: This is the splash screen of the game. It displays the 
--- company logo that...
+-- company logo that moves across the screen.
 -----------------------------------------------------------------------------------------
 
 -- Use Composer Library
 local composer = require( "composer" )
 
 -- Name the Scene
-sceneName = "splash_screen"
+SplashScreen = "splash_screen"
 
 -----------------------------------------------------------------------------------------
 
 -- Create Scene Object
-local scene = composer.newScene( sceneName )
+local scene = composer.newScene( SplashScreen )
 
 ----------------------------------------------------------------------------------------
 -- LOCAL VARIABLES
 -----------------------------------------------------------------------------------------
  
 -- The local variables for this scene
-local beetleship
-local scrollXSpeed = 8
-local scrollYSpeed = -3
-local jungleSounds = audio.loadSound("Sounds/animals144.mp3")
-local jungleSoundsChannel
+local logo
+local scrollXSpeed = 9
+local scrollYSpeed = -1
+local gameSound = audio.loadSound("GameSound.mp3")
+local gameSoundChannel
 
 --------------------------------------------------------------------------------------------
 -- LOCAL FUNCTIONS
 --------------------------------------------------------------------------------------------
 
 -- The function that moves the beetleship across the screen
-local function moveBeetleship()
-    beetleship.x = beetleship.x + scrollXSpeed
-    beetleship.y = beetleship.y + scrollYSpeed
+local function moveLogo()
+    logo.x = logo.x + scrollXSpeed
+    logo.y = logo.y + scrollYSpeed
 end
 
 -- The function that will go to the main menu 
@@ -58,14 +58,14 @@ function scene:create( event )
     display.setDefault("background", 0, 0, 0)
 
     -- Insert the beetleship image
-    beetleship = display.newImageRect("Images/beetleship.png", 200, 200)
+    logo = display.newImageRect("CompanyLogo(EmmaOuellette).png", 450, 500)
 
     -- set the initial x and y position of the beetleship
-    beetleship.x = 100
-    beetleship.y = display.contentHeight/2
+    logo.x = 100
+    logo.y = display.contentHeight/2
 
     -- Insert objects into the scene group in order to ONLY be associated with this scene
-    sceneGroup:insert( beetleship )
+    sceneGroup:insert( logo )
 
 end -- function scene:create( event )
 
@@ -90,13 +90,13 @@ function scene:show( event )
 
     elseif ( phase == "did" ) then
         -- start the splash screen music
-        jungleSoundsChannel = audio.play(jungleSounds )
+        gameSoundChannel = audio.play( gameSound )
 
         -- Call the moveBeetleship function as soon as we enter the frame.
-        Runtime:addEventListener("enterFrame", moveBeetleship)
+        Runtime:addEventListener("enterFrame", moveLogo)
 
         -- Go to the main menu screen after the given time.
-        timer.performWithDelay ( 3000, gotoMainMenu)          
+        timer.performWithDelay ( 5000, gotoMainMenu)          
         
     end
 
@@ -124,7 +124,7 @@ function scene:hide( event )
     elseif ( phase == "did" ) then
         
         -- stop the jungle sounds channel for this screen
-        audio.stop(jungleSoundsChannel)
+        audio.stop(gameSoundChannel)
     end
 
 end --function scene:hide( event )

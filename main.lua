@@ -2,7 +2,7 @@
 --
 -- main.lua
 -- Created by: Emma Ouellette
--- Date: Month Day, Year
+-- Date: November 18, 2017
 -- Description: This calls the splash screen of the app to load itself.
 -----------------------------------------------------------------------------------------
 
